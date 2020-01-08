@@ -110,7 +110,7 @@ module PlentyClient
       # 2017-12-04 DO: there has to be a supervisor watching over the users limits
       #                BEFORE the request actually happens
       #                response_header is after the request and useless if you have multiple instances of the Client
-      def throttle_check_short_period(response_header, bandwidth = 1)
+      def throttle_check_short_period(response_header)
         short_calls_left = response_header['X-Plenty-Global-Short-Period-Calls-Left']
         short_seconds_left = response_header['X-Plenty-Global-Short-Period-Decay']
         return if short_calls_left&.empty? || short_seconds_left&.empty?
